@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   </head>
 
   <body>
@@ -15,10 +16,15 @@
   <header class="header">
     <div class="header__logo">Boards</div>
   <% if user_signed_in? %>
-    <div class="header__dropdown"><%= image_tag "Oval.png" %></div>
+    <div class="dropdown">
+      <%= image_tag 'Oval.png', class: 'header_avatar dropbtn' %>
+      <div class="dropdown-content">
+        <a href="#">プロフィール</a>
+        <a href="#">ログアウト</a>
+      </div>
+    </div>
   <% else %>
-  <div class="header__login"><%= link_to 'ログイン', new_user_session_path %></div>
-    
+    <div class="header__login"><%= link_to 'ログイン', new_user_session_path %></div>
   <% end %>
     
   </header>
