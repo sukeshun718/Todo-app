@@ -7,21 +7,40 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
   <header class="header">
-    <div class="header__logo">Boards</div>
+    <div class="header__logo">
+    <% unless current_page?(root_path) %>
+      <%= link_to :back do %>
+        <%= image_tag "arrow-prev@2x.png",class: 'header__arrow' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Boards',root_path %>
+    </div>
   <% if user_signed_in? %>
-    <div class="header__dropdown"><%= image_tag "Oval.png" %></div>
+    <div class="dropdown">
+      <%= image_tag 'Oval.png', class: 'header_avatar dropbtn' %>
+      <div class="dropdown-content">
+        <a href="#">プロフィール</a>
+        <%= link_to 'ログアウト', destroy_user_session_path %>
+      </div>
+    </div>
   <% else %>
-  <div class="header__login"><%= link_to 'ログイン', new_user_session_path %></div>
-    
+    <div class="header__login"><%= link_to 'ログイン', new_user_session_path %></div>
   <% end %>
     
   </header>
+  <% if flash.present? %>
+    <div class="flash">
+      <% flash.each do |key, value| %>
+        <div class="<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>
