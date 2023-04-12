@@ -1,0 +1,20 @@
+<div class="board">
+    <div class="board__head">
+        <div class="board__name"><%= article.name %></div>
+        <% if user_signed_in? %>
+        <div class="dropdown">
+        <%= image_tag 'Combined Shape.png', class: 'header__dotted dropbtn header_avatar' %>
+            <div class="dropdown-content">
+                <%= link_to 'Edit', board_path(article) %>
+                <% if current_user.has_written?(article) %>
+                <%= link_to 'Delete',board_path(article),data: { method: 'delete', confirm: '本当に削除してもよろしいですか'} %>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="board__description"><%= article.description %></div>
+    <div class="board__image">
+        <%= image_tag 'Oval.png',class: 'board__img' %>
+    </div>
+</div>

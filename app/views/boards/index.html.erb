@@ -1,0 +1,12 @@
+<div class="board__container">
+    <h1 class="board__title">All Boards</h1>
+    <% @boards.each do |article| %>
+        <%= render 'board' ,article:article %>
+    <% end %>
+    <%= link_to new_board_path do %>
+        <div class="new__board">
+            <p>+ Add new borad</p>
+        </div>
+    <% end %>
+    
+</div>

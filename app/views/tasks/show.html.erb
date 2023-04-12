@@ -1,0 +1,18 @@
+<div class="board__container">
+    <h1 class="task__name"><%= @task.name %></h1>
+    <div class="task__description">
+        <p><%= @task.description %></p>
+    </div>
+    <h2 class="commnet__title">Comment</h2>
+    <% @comments.each do |comment| %>
+        <div class="comment__wrapper">
+          <p><%= comment.content %></p>
+        </div>
+    <% end %>
+    <%= link_to new_board_task_comment_path(task_id: @task) do %>
+    <div class="comment__new">
+        <p>+ Add new comment</p>
+    </div>
+    <% end %>
+    
+</div>

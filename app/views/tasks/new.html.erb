@@ -1,0 +1,23 @@
+<div class="board__new">
+    <h2>New Card</h2>
+    <ul>
+        <% @task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    <%= form_with(model: @task, url: board_tasks_path(@task.board), method: 'post', local: true) do |f| %>
+        <div>
+            <%= f.label :name %>
+        </div>
+        <div>
+            <%= f.text_field :name %>
+        </div>
+        <div class="description__label">
+            <%= f.label :description %>
+        </div>
+        <div>
+            <%= f.text_area :description %>
+        </div>
+        <%= f.submit 'Submit' %>
+    <% end%>
+</div>
