@@ -1,0 +1,17 @@
+<div class="board__container">
+    <h1 class="board__title"><%= @board.name %></h1>
+    <div class="board__createtime"><%= @board.display_created_at %></div>
+    <div class="board__task">
+    <% @tasks.each do |article| %>
+        <%= link_to board_task_path(board_id: article.board_id, id: article.id) do %>
+            <%= render 'tasks' ,article:article %>
+        <% end %>
+    <% end %>
+    </div>
+    <%= link_to new_board_task_path(@board) do %>
+        <div class="new__board">
+            <p>+ Add new card</p>
+        </div>
+    <% end %>
+    
+</div>

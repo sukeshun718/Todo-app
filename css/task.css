@@ -1,0 +1,9 @@
+.task__name {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.task__description {
+  margin-top: 32px;
+  padding: 20px 16px 26px 15px;
+}

@@ -1,0 +1,50 @@
+.container {
+  padding: 33px 26px 32px;
+  position: relative;
+}
+.container h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.field {
+  margin-top: 33px;
+}
+.field:not(:first-child) {
+  margin-bottom: 33px;
+}
+.field label {
+  font-size: 18px;
+}
+.field input {
+  margin-top: 4px;
+}
+.field [type=email], .field [type=password] {
+  border: none;
+  background: #F4F4F4;
+  height: 40px;
+  border-radius: 10px;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.actions {
+  position: fixed;
+  bottom: 32px;
+  width: 100%;
+}
+.actions [type=submit] {
+  background-color: #F8BD1C;
+  height: 40px;
+  width: 100%;
+  color: white;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+}

@@ -1,0 +1,18 @@
+<div class="board__new">
+    <h2>New Comment</h2>
+    <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    <%= form_with(model: @comment, url: board_task_comments_path(@comment.task), method: 'post', local: true) do |f| %>
+        <div>
+            <%= f.label :content %>
+        </div>
+        <div>
+            <%= f.text_area :content %>
+        </div>
+
+        <%= f.submit 'Submit' %>
+    <% end%>
+</div>
